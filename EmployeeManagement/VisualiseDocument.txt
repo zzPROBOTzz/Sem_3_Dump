@@ -1,0 +1,55 @@
+-- Create Database
+CREATE DATABASE EmployeeManagement;
+GO
+
+-- Use the Database
+USE EmployeeManagement;
+GO
+
+-- Create Departments Table
+CREATE TABLE Departments (
+    DepartmentId INT PRIMARY KEY,
+    DepartmentName NVARCHAR(100) UNIQUE NOT NULL
+);
+GO
+
+-- Create Employees Table
+CREATE TABLE Employees (
+    EmployeeId INT PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) UNIQUE NOT NULL,
+    DepartmentId INT NOT NULL,
+    FOREIGN KEY (DepartmentId) REFERENCES Departments(DepartmentId) ON DELETE CASCADE
+);
+GO
+
+-- Create Projects Table
+CREATE TABLE Projects (
+    ProjectId INT PRIMARY KEY,
+    ProjectName NVARCHAR(100) NOT NULL,
+    EmployeeId INT NOT NULL,
+    FOREIGN KEY (EmployeeId) REFERENCES Employees(EmployeeId) ON DELETE CASCADE
+);
+GO
+
+-- Insert Sample Data into Departments Table
+INSERT INTO Departments (DepartmentId, DepartmentName) VALUES 
+(101, 'Human Resources'), 
+(102, 'Information Technology'), 
+(103, 'Finance'), 
+(104, 'Marketing');
+
+-- Insert Sample Data into Employees Table
+INSERT INTO Employees (EmployeeId, Name, Email, DepartmentId) VALUES 
+(1001, 'Alice Johnson', 'alice.johnson@example.com', 102), 
+(1002, 'Bob Smith', 'bob.smith@example.com', 101),
+(1003, 'Charlie Brown', 'charlie.brown@example.com', 103),
+(1004, 'Diana Adams', 'diana.adams@example.com', 104);
+
+-- Insert Sample Data into Projects Table
+INSERT INTO Projects (ProjectId, ProjectName, EmployeeId) VALUES 
+(2001, 'AI Development', 1001),
+(2002, 'Cloud Migration', 1002),
+(2003, 'Financial Analysis', 1003),
+(2004, 'Marketing Strategy', 1004);
+GO

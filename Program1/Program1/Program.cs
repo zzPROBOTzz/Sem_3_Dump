@@ -50,7 +50,7 @@ namespace Program1
                 Console.WriteLine("\nno solution");
             }
 
-
+            Console.WriteLine("hi whats up!");
             Console.ReadKey();
 
         }

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Products>
+	<Product Code="CS25">
+		<Description>Murach's C# 2015</Description>
+		<Price>57.50</Price>
+	</Product>
+	<Product Code="CS15">
+		<Description>Murach's C# 2015</Description>
+		<Price>57.50</Price>
+	</Product>
+	<Product Code="CS35">
+		<Description>Murach's C# 2015</Description>
+		<Price>57.50</Price>
+	</Product>
+</Products>
